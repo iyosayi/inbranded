@@ -1,0 +1,28 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.wrapAsync = void 0;
+
+var _http = require("./http.response");
+
+/**
+ * 
+ * @param fn
+ * This takes in a controller function, which resolves or rejects the promise.
+ * The rejected promise is passed onto the catch block which is responsible 
+ * for returning the appropriate error details.
+ */
+const wrapAsync = fn => (req, res) => fn(req, res).catch(error => {
+  console.error('error', error);
+  return (0, _http.makeHttpError)({
+    errorMessage: error.message,
+    title: error.name,
+    stack: error.stack,
+    statusCode: error.statusCode
+  });
+});
+
+exports.wrapAsync = wrapAsync;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9oZWxwZXJzL3dyYXAuYXN5bmMudHMiXSwibmFtZXMiOlsid3JhcEFzeW5jIiwiZm4iLCJyZXEiLCJyZXMiLCJjYXRjaCIsImVycm9yIiwiY29uc29sZSIsImVycm9yTWVzc2FnZSIsIm1lc3NhZ2UiLCJ0aXRsZSIsIm5hbWUiLCJzdGFjayIsInN0YXR1c0NvZGUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTs7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNPLE1BQU1BLFNBQVMsR0FBSUMsRUFBRCxJQUFrQixDQUFDQyxHQUFELEVBQWVDLEdBQWYsS0FDekNGLEVBQUUsQ0FBQ0MsR0FBRCxFQUFNQyxHQUFOLENBQUYsQ0FBYUMsS0FBYixDQUFvQkMsS0FBRCxJQUFrQjtBQUNuQ0MsRUFBQUEsT0FBTyxDQUFDRCxLQUFSLENBQWMsT0FBZCxFQUF1QkEsS0FBdkI7QUFDQSxTQUFPLHlCQUFjO0FBQ25CRSxJQUFBQSxZQUFZLEVBQUVGLEtBQUssQ0FBQ0csT0FERDtBQUVuQkMsSUFBQUEsS0FBSyxFQUFFSixLQUFLLENBQUNLLElBRk07QUFHbkJDLElBQUFBLEtBQUssRUFBRU4sS0FBSyxDQUFDTSxLQUhNO0FBSW5CQyxJQUFBQSxVQUFVLEVBQUVQLEtBQUssQ0FBQ087QUFKQyxHQUFkLENBQVA7QUFNRCxDQVJELENBREsiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBtYWtlSHR0cEVycm9yIH0gZnJvbSAnLi9odHRwLnJlc3BvbnNlJ1xuaW1wb3J0IHsgUmVxdWVzdCwgUmVzcG9uc2UgfSBmcm9tICdleHByZXNzJ1xuXG5cbi8qKlxuICogXG4gKiBAcGFyYW0gZm5cbiAqIFRoaXMgdGFrZXMgaW4gYSBjb250cm9sbGVyIGZ1bmN0aW9uLCB3aGljaCByZXNvbHZlcyBvciByZWplY3RzIHRoZSBwcm9taXNlLlxuICogVGhlIHJlamVjdGVkIHByb21pc2UgaXMgcGFzc2VkIG9udG8gdGhlIGNhdGNoIGJsb2NrIHdoaWNoIGlzIHJlc3BvbnNpYmxlIFxuICogZm9yIHJldHVybmluZyB0aGUgYXBwcm9wcmlhdGUgZXJyb3IgZGV0YWlscy5cbiAqL1xuZXhwb3J0IGNvbnN0IHdyYXBBc3luYyA9IChmbjogRnVuY3Rpb24pID0+IChyZXE6IFJlcXVlc3QsIHJlczogUmVzcG9uc2UpID0+XG4gIGZuKHJlcSwgcmVzKS5jYXRjaCgoZXJyb3I6IEVycm9yKSA9PiB7XG4gICAgY29uc29sZS5lcnJvcignZXJyb3InLCBlcnJvcilcbiAgICByZXR1cm4gbWFrZUh0dHBFcnJvcih7XG4gICAgICBlcnJvck1lc3NhZ2U6IGVycm9yLm1lc3NhZ2UsXG4gICAgICB0aXRsZTogZXJyb3IubmFtZSxcbiAgICAgIHN0YWNrOiBlcnJvci5zdGFjayxcbiAgICAgIHN0YXR1c0NvZGU6IGVycm9yLnN0YXR1c0NvZGUsXG4gICAgfSlcbiAgfSlcbiJdfQ==

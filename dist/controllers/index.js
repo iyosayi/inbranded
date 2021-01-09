@@ -1,0 +1,42 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.exportImageController = exports.cropImageController = exports.rotateImageController = exports.resizeImageController = exports.uploadImageController = void 0;
+
+var _patch = _interopRequireDefault(require("./patch.resize"));
+
+var _post = _interopRequireDefault(require("./post.upload"));
+
+var _patch2 = _interopRequireDefault(require("./patch.rotate"));
+
+var _patch3 = _interopRequireDefault(require("./patch.crop"));
+
+var _post2 = _interopRequireDefault(require("./post.export"));
+
+var _useCases = require("../use-cases");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const uploadImageController = (0, _post.default)({
+  uploadImage: _useCases.uploadImage
+});
+exports.uploadImageController = uploadImageController;
+const resizeImageController = (0, _patch.default)({
+  resizeImage: _useCases.resizeImage
+});
+exports.resizeImageController = resizeImageController;
+const rotateImageController = (0, _patch2.default)({
+  rotateImage: _useCases.rotateImage
+});
+exports.rotateImageController = rotateImageController;
+const cropImageController = (0, _patch3.default)({
+  cropImage: _useCases.cropImage
+});
+exports.cropImageController = cropImageController;
+const exportImageController = (0, _post2.default)({
+  exportImage: _useCases.exportImage
+});
+exports.exportImageController = exportImageController;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9jb250cm9sbGVycy9pbmRleC50cyJdLCJuYW1lcyI6WyJ1cGxvYWRJbWFnZUNvbnRyb2xsZXIiLCJ1cGxvYWRJbWFnZSIsInJlc2l6ZUltYWdlQ29udHJvbGxlciIsInJlc2l6ZUltYWdlIiwicm90YXRlSW1hZ2VDb250cm9sbGVyIiwicm90YXRlSW1hZ2UiLCJjcm9wSW1hZ2VDb250cm9sbGVyIiwiY3JvcEltYWdlIiwiZXhwb3J0SW1hZ2VDb250cm9sbGVyIiwiZXhwb3J0SW1hZ2UiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7OztBQVFPLE1BQU1BLHFCQUFxQixHQUFHLG1CQUFlO0FBQUVDLEVBQUFBLFdBQVcsRUFBWEE7QUFBRixDQUFmLENBQTlCOztBQUNBLE1BQU1DLHFCQUFxQixHQUFHLG9CQUFnQjtBQUFFQyxFQUFBQSxXQUFXLEVBQVhBO0FBQUYsQ0FBaEIsQ0FBOUI7O0FBQ0EsTUFBTUMscUJBQXFCLEdBQUcscUJBQWdCO0FBQUVDLEVBQUFBLFdBQVcsRUFBWEE7QUFBRixDQUFoQixDQUE5Qjs7QUFDQSxNQUFNQyxtQkFBbUIsR0FBRyxxQkFBYztBQUFFQyxFQUFBQSxTQUFTLEVBQVRBO0FBQUYsQ0FBZCxDQUE1Qjs7QUFDQSxNQUFNQyxxQkFBcUIsR0FBRyxvQkFBZ0I7QUFBRUMsRUFBQUEsV0FBVyxFQUFYQTtBQUFGLENBQWhCLENBQTlCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IG1ha2VQYXRjaFJlc2l6ZSBmcm9tICcuL3BhdGNoLnJlc2l6ZSdcbmltcG9ydCBtYWtlUG9zdFVwbG9hZCBmcm9tICcuL3Bvc3QudXBsb2FkJ1xuaW1wb3J0IG1ha2VQYXRjaFJvdGF0ZSBmcm9tICcuL3BhdGNoLnJvdGF0ZSdcbmltcG9ydCBtYWtlUGF0Y2hDcm9wIGZyb20gJy4vcGF0Y2guY3JvcCdcbmltcG9ydCBtYWtlRXhwb3J0SW1hZ2UgZnJvbSAnLi9wb3N0LmV4cG9ydCdcbmltcG9ydCB7XG4gIHVwbG9hZEltYWdlLFxuICBjcm9wSW1hZ2UsXG4gIHJlc2l6ZUltYWdlLFxuICByb3RhdGVJbWFnZSxcbiAgZXhwb3J0SW1hZ2UsXG59IGZyb20gJy4uL3VzZS1jYXNlcydcblxuZXhwb3J0IGNvbnN0IHVwbG9hZEltYWdlQ29udHJvbGxlciA9IG1ha2VQb3N0VXBsb2FkKHsgdXBsb2FkSW1hZ2UgfSlcbmV4cG9ydCBjb25zdCByZXNpemVJbWFnZUNvbnRyb2xsZXIgPSBtYWtlUGF0Y2hSZXNpemUoeyByZXNpemVJbWFnZSB9KVxuZXhwb3J0IGNvbnN0IHJvdGF0ZUltYWdlQ29udHJvbGxlciA9IG1ha2VQYXRjaFJvdGF0ZSh7IHJvdGF0ZUltYWdlIH0pXG5leHBvcnQgY29uc3QgY3JvcEltYWdlQ29udHJvbGxlciA9IG1ha2VQYXRjaENyb3AoeyBjcm9wSW1hZ2UgfSlcbmV4cG9ydCBjb25zdCBleHBvcnRJbWFnZUNvbnRyb2xsZXIgPSBtYWtlRXhwb3J0SW1hZ2UoeyBleHBvcnRJbWFnZSB9KVxuIl19
