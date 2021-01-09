@@ -2,9 +2,9 @@
 
 ## Project structure
 
-This project follows the `Clean code Architecture`. \n
-The `Logic implementation` for the various `use-cases` can be found in the `use-cases` folder which is inside the `src` folder. e.g `/src/use-cases`. \n
-The Controllers are in the `/src/controllers` folder. \n
+This project follows the `Clean code Architecture`.
+The `Logic implementation` for the various `use-cases` can be found in the `use-cases` folder which is inside the `src` folder. e.g `/src/use-cases`.
+The Controllers are in the `/src/controllers` folder.
 
 The project code base tends to implement `Functional Programming` as its programming paradigm. 
 
