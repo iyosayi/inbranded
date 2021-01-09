@@ -27,13 +27,16 @@ The API does the following
    The uploaded file is available in the `uploads` folder which can be viewed in the project root directory e.g `rootDir/uploads`
 
 2. To crop an image, make a `PATCH` request to `http://localhost:5000/api/v1/image/crop/:id` where the `id` is the
-   id of the image. The required query parameters are `width`, `height`, `x`, and `y`. These values are numbers.
+   id of the image. The required query parameters are `width`, `height`, `x`, and `y`. These values are numbers. The cropped image
+   can be found in the `uploads` folder which have a filename format of the following nature `1234949-image.jpg`
 
 3. To resize an image, make a `PATCH` request to `http://localhost:5000/api/v1/image/resize/:id` where the `id` is the
-   id of the image. The required query parameters are `width`, and `height`. These values are numbers.
+   id of the image. The required query parameters are `width`, and `height`. These values are numbers. The resized image
+   can be found in the `uploads` folder which have a filename format of the following nature `1234949-image.jpg`
 
 4. To rotate an image, make a `PATCH` request to `http://localhost:5000/api/v1/image/rotate/:id` where the `id` is the
-   id of the image. The required query parameters is `deg`. which specifies the degree of rotation. This value is a number.
+   id of the image. The required query parameters is `deg`. which specifies the degree of rotation. This value is a number. The rotated image
+   can be found in the `uploads` folder which have a filename format of the following nature `1234949-image.jpg`
 
 ### Export Routes
 
