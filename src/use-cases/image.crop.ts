@@ -34,6 +34,11 @@ const makeCroppedImage = ({ imageProcessor, imageDb }: IDeps) => {
       })
       .toFile(outputFile)
     await imageDb.update({ id, filepath: outputFile })
+    fs.unlink(filepath, (err) => {
+      if (err) {
+        throw err
+      }
+    })
     return imageToCrop
   }
 }

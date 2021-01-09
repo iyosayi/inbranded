@@ -33,6 +33,11 @@ const makeRotateImage = ({ imageProcessor, imageDb }: IDeps) => {
       .rotate(modifiedDegree)
       .toFile(outputFile)
     await imageDb.update({ id, filepath: outputFile })
+    fs.unlink(filepath, (err) => {
+      if(err) {
+        throw err
+      }
+    })
     return imageToRotate
   }
 }

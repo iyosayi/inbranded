@@ -38,7 +38,11 @@ const makeResizedImage = ({ imageProcessor, imageDb }: IDeps) => {
       .resize({ width: modifiedWidth, height: modifiedHeight })
       .toFile(outputFile)
     await imageDb.update({ id, filepath: outputFile })
-    console.log(imageToResize)
+    fs.unlink(filepath, (err) => {
+      if(err) {
+        throw err
+      }
+    })
     return imageToResize
   }
 }

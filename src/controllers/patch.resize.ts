@@ -15,12 +15,11 @@ const makePatchResize = ({ resizeImage }: IPatchResize) => {
     const { ...resizeDetails }: IResize = httpRequest.query
 
     const image = await resizeImage({ id, ...resizeDetails })
-    const { width, height } = image.bitmap
     return apiResponse({
       status: true,
       statusCode: 200,
       message: 'Image resized successfully',
-      data: { width, height },
+      data: image,
     })
   })
 }
